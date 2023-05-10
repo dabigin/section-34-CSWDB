@@ -3,6 +3,12 @@ const app = express();
 const path = require("path");
 const redditData = require("./data.json");
 
+// when running node in parent directory this works
+app.use(express.static(path.join(__dirname + "/public")))
+
+// when running node in parent directory this doesn't work
+// app.use(express.static("public"))
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"))
 
